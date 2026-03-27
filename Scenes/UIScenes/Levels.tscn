@@ -1,0 +1,233 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Assets/UI/Buttons/blue_button05.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/Buttons/blue_button03.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/Art/BackGround.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/kfn_30_o1.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/music/NES__Thriller.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sounds/Buttons/mixkit-handgun-click-1660.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sounds/Buttons/mixkit-modern-technology-select-3124.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Enemies/S-Zombies/S-Zombie-0-sprite.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Environment/Props/koelsch.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Environment/buildings/Ruine (1).png" type="Texture" id=10]
+[ext_resource path="res://Assets/Environment/buildings/Ruine (3).png" type="Texture" id=11]
+[ext_resource path="res://Assets/Environment/Props/Baum(Abgebrannt2).png" type="Texture" id=12]
+[ext_resource path="res://Assets/Environment/Props/Baum_1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Assets/Environment/Props/Baum(Abgebrannt).png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 8 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 4.0
+} ]
+
+[sub_resource type="DynamicFont" id=8]
+size = 28
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 27
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 28
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
+
+[node name="Levels" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="ButtonSound_Gun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 9.904
+bus = "Sounds"
+
+[node name="ButtonSound_Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Sounds"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Music"
+
+[node name="B" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="M"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+
+[node name="Tasks" type="Label" parent="M/VBoxContainer"]
+margin_right = 1180.0
+margin_bottom = 225.0
+custom_fonts/font = ExtResource( 4 )
+text = "Deine Aufgaben:
+
+1. Verteidige dein Kölsch!
+2. Baue Türme, um die Straßen von
+     Zombies zu befreien
+3. LASS SIE NICHT ZUM KÖLSCH KOMMEN!!!"
+
+[node name="VB" type="VBoxContainer" parent="M"]
+margin_left = 730.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 8
+custom_constants/separation = 35
+alignment = 1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="M/VB"]
+position = Vector2( -563, 524 )
+frames = SubResource( 5 )
+frame = 2
+playing = true
+
+[node name="Level_Aachener" type="TextureButton" parent="M/VB"]
+margin_left = 75.0
+margin_top = 90.0
+margin_right = 425.0
+margin_bottom = 165.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="M/VB/Level_Aachener"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 8 )
+text = "Der Aachener Geier"
+align = 1
+valign = 1
+
+[node name="Level_Heumarkt" type="TextureButton" parent="M/VB"]
+margin_left = 75.0
+margin_top = 200.0
+margin_right = 425.0
+margin_bottom = 275.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="M/VB/Level_Heumarkt"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "Hauerei am Heumarkt"
+align = 1
+valign = 1
+
+[node name="Level_Neumarkt" type="TextureButton" parent="M/VB"]
+margin_left = 75.0
+margin_top = 310.0
+margin_right = 425.0
+margin_bottom = 385.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="M/VB/Level_Neumarkt"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 6 )
+text = " Nervöser Neumarkt"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="M/VB"]
+margin_top = 420.0
+margin_right = 500.0
+margin_bottom = 420.0
+
+[node name="Main_Menu" type="TextureButton" parent="M/VB"]
+margin_left = 75.0
+margin_top = 455.0
+margin_right = 425.0
+margin_bottom = 530.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 1 )
+expand = true
+
+[node name="Label" type="Label" parent="M/VB/Main_Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 4 )
+text = "Hauptmenü"
+align = 1
+valign = 1
+
+[node name="Sprite" type="Sprite" parent="M/VB"]
+position = Vector2( -397, 520 )
+texture = ExtResource( 9 )
+
+[node name="Ruine(3)" type="Sprite" parent="."]
+position = Vector2( 136, 405 )
+texture = ExtResource( 11 )
+
+[node name="Ruine(1)" type="Sprite" parent="."]
+position = Vector2( 338, 407 )
+texture = ExtResource( 10 )
+
+[node name="Baum(Abgebrannt2)" type="Sprite" parent="."]
+position = Vector2( 220, 532 )
+texture = ExtResource( 12 )
+
+[node name="Baum(Abgebrannt)" type="Sprite" parent="."]
+position = Vector2( 408, 618 )
+texture = ExtResource( 15 )
+
+[node name="Baum1" type="Sprite" parent="."]
+position = Vector2( 46, 562 )
+texture = ExtResource( 13 )

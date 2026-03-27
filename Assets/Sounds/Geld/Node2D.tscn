@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Coin.gd" type="Script" id=1]
+[ext_resource path="res://sound/ding-1-14705.mp3" type="AudioStream" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_left = -2.0
+margin_top = -1.0
+margin_right = 216.0
+margin_bottom = 144.0
+
+[node name="btnCoin" type="Button" parent="CenterContainer"]
+margin_left = 67.0
+margin_top = 62.0
+margin_right = 150.0
+margin_bottom = 82.0
+text = "Coin sound"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+
+[connection signal="button_up" from="CenterContainer/btnCoin" to="." method="_on_btnCoin_button_up"]

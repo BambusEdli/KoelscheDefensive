@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NES__Thriller.mp3-1af96ce84bf7ab4a22b65ce6100c8b1d.mp3str"
+
+[deps]
+
+source_file="res://Assets/music/NES__Thriller.mp3"
+dest_files=[ "res://.import/NES__Thriller.mp3-1af96ce84bf7ab4a22b65ce6100c8b1d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

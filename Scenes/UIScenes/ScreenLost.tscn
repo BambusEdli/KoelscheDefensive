@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/UI/Art/BackGround.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/Buttons/blue_button05.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/Buttons/blue_button03.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Fonts/kfn_40_o1.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Fonts/kfn_50_o1.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Assets/Sounds/Buttons/mixkit-modern-technology-select-3124.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/UI/Art/fruhkolsch.png.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sounds/8-bit-bomb-explosion.wav" type="AudioStream" id=8]
+
+[node name="ScreenLost" type="Control"]
+
+[node name="LostSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="B" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+margin_bottom = 720.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1280.0
+margin_bottom = 720.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="VB" type="VBoxContainer" parent="M"]
+margin_left = 676.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+rect_min_size = Vector2( 500, 0 )
+size_flags_horizontal = 8
+custom_constants/separation = 35
+alignment = 1
+
+[node name="Label" type="Label" parent="M/VB"]
+margin_top = 109.0
+margin_right = 554.0
+margin_bottom = 226.0
+custom_fonts/font = ExtResource( 5 )
+text = "Du hast dein 
+Kölsch verloren..."
+align = 1
+
+[node name="NewGame" type="TextureButton" parent="M/VB"]
+margin_left = 102.0
+margin_top = 261.0
+margin_right = 452.0
+margin_bottom = 336.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="M/VB/NewGame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Neues Spiel"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="M/VB"]
+margin_top = 371.0
+margin_right = 554.0
+margin_bottom = 401.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="MainMenu" type="TextureButton" parent="M/VB"]
+margin_left = 102.0
+margin_top = 436.0
+margin_right = 452.0
+margin_bottom = 511.0
+rect_min_size = Vector2( 350, 75 )
+size_flags_horizontal = 4
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="M/VB/MainMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Hauptmenü"
+align = 1
+valign = 1
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 9.904
+bus = "Sounds"
+
+[node name="Fruhkolschpng" type="Sprite" parent="."]
+position = Vector2( 336, 373 )
+scale = Vector2( 0.681009, 0.712166 )
+texture = ExtResource( 7 )
